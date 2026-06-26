@@ -12,7 +12,7 @@ export default function Sidebar({ setCurrentChat, currentChat }) {
     const fetchUsers = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await axios.get("http://localhost:5000/api/users", {
+       const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/users`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUsers(res.data.filter((u) => u._id !== user._id));
